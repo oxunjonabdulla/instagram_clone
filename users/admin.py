@@ -7,7 +7,7 @@ from users.models import User, UserConfirmation
 
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ["auth_type", "auth_status"]
+    list_display = ["username", "email", "phone_number", "auth_type", "auth_status"]
     list_filter = ["auth_type", "auth_status"]
     search_fields = ['email', 'phone_number', 'username']
 
