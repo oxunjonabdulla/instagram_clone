@@ -36,9 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "users",
-    "shared",
-    "post",
+    "users_app",
+    "shared_app",
+    "post_app",
     "rest_framework",
     "rest_framework_simplejwt",
     'rest_framework_simplejwt.token_blacklist',
@@ -77,7 +77,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'root.wsgi.application'
 
-AUTH_USER_MODEL = "users.User"
+AUTH_USER_MODEL = "users_app.User"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
