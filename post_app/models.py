@@ -23,7 +23,7 @@ class Post(BaseModel):
         verbose_name_plural = "posts"
 
     def __str__(self):
-        return self.text
+        return f"By {self.author.username} :  {self.text[:30] if len(self.text) > 20 else self.text}"
 
 
 class PostComment(BaseModel):
@@ -46,7 +46,7 @@ class PostComment(BaseModel):
         verbose_name_plural = "postComments"
 
     def __str__(self):
-        return self.text
+        return f"By {self.author.username} :  {self.text[:30] if len(self.text) > 20 else self.text}"
 
 
 class PostLike(BaseModel):
@@ -66,7 +66,7 @@ class PostLike(BaseModel):
         verbose_name_plural = "postLikes"
 
     def __str__(self):
-        return self.post.text
+        return f"By  :  {self.author.username} liked {self.post.text[:30] if len(self.post.text) > 20 else self.post.text}"
 
 
 class CommentLike(BaseModel):
@@ -86,4 +86,4 @@ class CommentLike(BaseModel):
         verbose_name_plural = "CommentLikes"
 
     def __str__(self):
-        return self.comment.text
+        return f"By :  {self.author.username} liked {self.comment.text[:30] if len(self.comment.text) > 20 else self.comment.text}"
