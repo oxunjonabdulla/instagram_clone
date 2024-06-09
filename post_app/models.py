@@ -12,15 +12,15 @@ from users_app.models import User
 # User = get_user_model(BaseModel)
 class Post(BaseModel):
     author = models.ForeignKey(User,
-                               on_delete=models.CASCADE)
+                               on_delete=models.CASCADE, related_name="posts")
     image = models.ImageField(upload_to="post_images",
                               validators=[FileExtensionValidator(allowed_extensions=["jpg", "jpeg", "png"])])
     text = models.TextField(validators=[MaxLengthValidator(2000)])
 
     class Meta:
         db_table = "posts"
-        verbose_name = "posts"
-        verbose_name_plural = "posts"
+        verbose_name = "Posts"
+        verbose_name_plural = "Posts"
 
     def __str__(self):
         return f"By {self.author.username} :  {self.text[:30] if len(self.text) > 20 else self.text}"
@@ -41,9 +41,9 @@ class PostComment(BaseModel):
     )
 
     class Meta:
-        db_table = "postComment"
-        verbose_name = "postComment"
-        verbose_name_plural = "postComments"
+        db_table = "post_comment"
+        verbose_name = "PostComment"
+        verbose_name_plural = "PostComments"
 
     def __str__(self):
         return f"By {self.author.username} :  {self.text[:30] if len(self.text) > 20 else self.text}"
@@ -61,9 +61,9 @@ class PostLike(BaseModel):
             UniqueConstraint(
                 fields=["author", "post"],
                 name="unique_author_post")]
-        db_table = "postLike"
-        verbose_name = "postLike"
-        verbose_name_plural = "postLikes"
+        db_table = "post_like"
+        verbose_name = "PostLike"
+        verbose_name_plural = "PostLikes"
 
     def __str__(self):
         return f"By  :  {self.author.username} liked {self.post.text[:30] if len(self.post.text) > 20 else self.post.text}"
@@ -81,7 +81,7 @@ class CommentLike(BaseModel):
             UniqueConstraint(
                 fields=["author", "comment"],
                 name="unique_author_comment")]
-        db_table = "CommentLike"
+        db_table = "comment_like"
         verbose_name = "CommentLike"
         verbose_name_plural = "CommentLikes"
 

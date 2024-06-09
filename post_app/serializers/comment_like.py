@@ -10,9 +10,4 @@ class CommentLikeModelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CommentLike
-
-    fields = [
-        "id",
-        "author",
-        "comment"
-    ]
+        fields = ["id", "author", "comment"]

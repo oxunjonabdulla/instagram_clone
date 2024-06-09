@@ -15,3 +15,5 @@ class PostLikeSerializer(serializers.ModelSerializer):
             "author",
             "post"
         ]
+
+

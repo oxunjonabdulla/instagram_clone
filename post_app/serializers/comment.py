@@ -16,8 +16,8 @@ class CommentSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "author",
-            "post",
             "text",
+            "post",
             "parent",
             "created_at",
             "replies",
@@ -40,5 +40,6 @@ class CommentSerializer(serializers.ModelSerializer):
         else:
             return False
 
-    def get_likes_count(self, obj):
+    @staticmethod
+    def get_likes_count(obj):
         return obj.likes.count()
