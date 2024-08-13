@@ -11,4 +11,4 @@ Technology	Use
 
 Clone the repository
 
-  https://github.com/oxunabdulla/instagram_clone.git
+  [https://github.com/oxunabdulla/instagram_clone.git](https://github.com/oxunjonabdulla/instagram_clone.git)
